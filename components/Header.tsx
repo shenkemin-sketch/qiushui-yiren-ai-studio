@@ -16,9 +16,9 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick, module }) => {
 
   const getModuleLabel = (m: WorkflowModule) => {
     switch (m) {
-      case 'lookbook': return 'LOOKBOOK / 棚拍/款片';
-      case 'campaign': return 'CAMPAIGN / 形象';
-      case 'still_life': return 'STILL LIFE / 静物';
+      case 'lookbook': return '棚拍 / 款片';
+      case 'campaign': return '形象大片';
+      case 'still_life': return '静物特写';
       default: return '';
     }
   };
@@ -54,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick, module }) => {
         {/* Right: Studio Label */}
         <div className="flex items-end gap-4 z-10">
           <span className="text-[11px] font-serif italic text-gray-400 tracking-wide">
-            Every Shot, A Masterpiece
+            每一帧，皆为杰作
           </span>
         </div>
       </div>

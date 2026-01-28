@@ -5,14 +5,13 @@
 */
 
 
+
 // Fix: import useState and useEffect from React to resolve reference errors.
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { generateEditedImage } from './services/geminiService';
 import Header from './components/Header';
 import ReferencePanel, { type ReferenceObject } from './components/AddProductModal';
 import { LoadingOverlay } from './components/LoadingOverlay';
-import { EditorToolbar } from './components/EditorToolbar';
-import InvitationScreen from './components/InvitationScreen';
 import StartScreen from './components/StartScreen';
 import StrategyPanel from './components/StrategyPanel';
 import AspectRatioPanel from './components/AspectRatioPanel';
@@ -110,7 +109,7 @@ interface HistoryState {
 }
 
 const App: React.FC = () => {
-    const [appState, setAppState] = useState<AppState>('invitation');
+    const [appState, setAppState] = useState<AppState>('start');
     const [currentModule, setCurrentModule] = useState<WorkflowModule>('lookbook');
     const [referenceObjects, setReferenceObjects] = useState<ReferenceObject[]>([]);
     const [modelStats, setModelStats] = useState<ModelStats>(DEFAULT_MODEL_STATS);
@@ -156,16 +155,7 @@ const App: React.FC = () => {
         return all.find(s => s.id === id);
     };
 
-    useEffect(() => {
-        const hasAccess = localStorage.getItem('betaAccessGranted') === 'true';
-        if (hasAccess) {
-            setAppState('start');
-        }
-    }, []);
-
-    const handleAccessGranted = () => {
-        setAppState('start');
-    };
+    // Invitation check removed - internal beta mode
 
     const handleModeSelect = (module: WorkflowModule, files: FileList | null) => {
         setCurrentModule(module);
@@ -496,8 +486,6 @@ const App: React.FC = () => {
 
     const renderContent = () => {
         switch (appState) {
-            case 'invitation':
-                return <InvitationScreen onAccessGranted={handleAccessGranted} />;
             case 'start':
                 return <StartScreen onModeSelect={handleModeSelect} />;
             case 'editor':

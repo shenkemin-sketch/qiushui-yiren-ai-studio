@@ -192,7 +192,7 @@ const StartScreen: React.FC<StartScreenProps> = ({ onModeSelect }) => {
                         <span>模特资产库</span>
                     </button>
                     <p className="text-[10px] uppercase tracking-[0.2em] text-gray-300">
-                        Powered by Google Gemini 3.0 Pro
+                        由 Google Gemini 3.0 Pro 提供支持
                     </p>
                 </footer>
             </div>
