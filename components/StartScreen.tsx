@@ -96,7 +96,7 @@ const StartScreen: React.FC<StartScreenProps> = ({ onModeSelect }) => {
 
             <div className="relative z-10 mt-auto mb-4">
                 <div className="w-6 h-px bg-gray-300 mb-3 group-hover:w-12 group-hover:bg-[var(--brand-accent-color)] transition-all duration-500"></div>
-                <p className="text-[11px] text-gray-500 font-light leading-relaxed max-w-[95%] tracking-wide line-clamp-2">
+                <p className="text-xs text-gray-500 font-light leading-relaxed max-w-[95%] tracking-wide line-clamp-2">
                     {desc}
                 </p>
             </div>
@@ -162,7 +162,7 @@ const StartScreen: React.FC<StartScreenProps> = ({ onModeSelect }) => {
                         title="棚拍与款片"
                         engTitle="Model Lookbook"
                         subtitle="Collection 01"
-                        desc="12张全能套图。融合电商标准棚拍与网感款片，一站式产出全渠道所需的S级模特资产。"
+                        desc="一键生成12张模特图。从电商主图到社媒内容，一套图覆盖所有渠道需求。"
                         index="01"
                     />
                     <Card
@@ -170,7 +170,7 @@ const StartScreen: React.FC<StartScreenProps> = ({ onModeSelect }) => {
                         title="形象大片"
                         engTitle="Brand Campaign"
                         subtitle="Collection 02"
-                        desc="5张情绪大片。电影级光影与叙事感，专为品牌调性、季度主题与Lookbook封面打造。"
+                        desc="5张品牌形象大片。电影感光影，直接用于季度主题、海报或Lookbook封面。"
                         index="02"
                     />
                     <Card
@@ -178,7 +178,7 @@ const StartScreen: React.FC<StartScreenProps> = ({ onModeSelect }) => {
                         title="静物特写"
                         engTitle="Still Life"
                         subtitle="Collection 03"
-                        desc="3-15张极致静物。支持创意场景静物与标准电商白底细节图，完美还原面料工艺。"
+                        desc="3-15张产品特写。真实还原面料质感与工艺细节，白底图一键切换。"
                         index="03"
                     />
                 </div>
