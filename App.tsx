@@ -7,7 +7,7 @@
 
 // Fix: import useState and useEffect from React to resolve reference errors.
 import React, { useState, useEffect } from 'react';
-import { generateEditedImage, type StrategySuggestion } from './services/geminiService';
+import { generateEditedImage } from './services/geminiService';
 import Header from './components/Header';
 import ReferencePanel, { type ReferenceObject } from './components/AddProductModal';
 import { LoadingOverlay } from './components/LoadingOverlay';
@@ -16,7 +16,7 @@ import InvitationScreen from './components/InvitationScreen';
 import StartScreen from './components/StartScreen';
 import StrategyPanel from './components/StrategyPanel';
 import AspectRatioPanel from './components/AspectRatioPanel';
-import ModelSettingsPanel from './components/ModelSettingsPanel';
+
 import ResultRefiner from './components/ResultRefiner';
 import EditorCanvas from './components/EditorCanvas';
 import ProductionPanel from './components/ProductionPanel';
@@ -116,7 +116,7 @@ const App: React.FC = () => {
     const [modelStats, setModelStats] = useState<ModelStats>(DEFAULT_MODEL_STATS);
 
     const [error, setError] = useState<string | null>(null);
-    const [suggestions, setSuggestions] = useState<StrategySuggestion[]>([]);
+    const [stylePrompt, setStylePrompt] = useState('');
     const [outputAspectRatio, setOutputAspectRatio] = useState<string>('auto');
     const [exhaustedModels, setExhaustedModels] = useState<Set<string>>(new Set());
 
@@ -477,7 +477,7 @@ const App: React.FC = () => {
         setHistory([]);
         setHistoryIndex(-1);
         setGeneratedImageUrl(null);
-        setSuggestions([]);
+        setStylePrompt('');
         setOutputAspectRatio('auto');
     };
 
@@ -520,17 +520,11 @@ const App: React.FC = () => {
                                 disabled={isLoading}
                             />
                             <StrategyPanel
-                                referenceObjects={referenceObjects}
-                                onApplyStrategy={(prompt) => handleGenerate(prompt)}
-                                isLoading={isLoading}
-                                suggestions={suggestions}
-                                onSuggestionsChange={setSuggestions}
-                                module={currentModule}
+                                stylePrompt={stylePrompt}
+                                onStylePromptChange={setStylePrompt}
+                                disabled={isLoading}
                             />
 
-                            <ModelSettingsPanel
-                                exhaustedModels={exhaustedModels}
-                            />
 
                             <div className="mt-auto pt-8 flex flex-col gap-4">
                                 {error && <p className="text-[var(--brand-accent)] text-[10px] uppercase tracking-wide border-l-2 border-[var(--brand-accent)] pl-2">{error}</p>}
@@ -539,7 +533,7 @@ const App: React.FC = () => {
                                     disabled={isLoading || referenceObjects.length < 1}
                                     className="btn btn-primary w-full h-12 flex justify-center items-center gap-2 group text-sm tracking-widest uppercase shadow-md hover:shadow-xl transition-all"
                                 >
-                                    {isLoading ? 'Processing...' : 'Generate Result'}
+                                    {isLoading ? '生成中...' : '开始生成套图'}
                                     {!isLoading && <span className="opacity-0 group-hover:opacity-100 transition-opacity ml-1">→</span>}
                                 </button>
                             </div>
@@ -588,20 +582,6 @@ const App: React.FC = () => {
                                     />
                                 )}
                             </div>
-
-                            {/* Floating Toolbar - Capsule Style */}
-                            {/* Floating Toolbar - Refactored Component */}
-                            <EditorToolbar
-                                onUndo={handleUndo}
-                                onRedo={handleRedo}
-                                onRefine={() => setIsRefining(true)}
-                                onDownload={handleDownload}
-                                canUndo={historyIndex > 0}
-                                canRedo={historyIndex < history.length - 1}
-                                canRefine={!!generatedImageUrl}
-                                canDownload={!!generatedImageUrl}
-                                isLoading={isLoading}
-                            />
                         </main>
                     </div>
                 );

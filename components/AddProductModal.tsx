@@ -499,7 +499,7 @@ const ReferencePanel: React.FC<ReferencePanelProps> = ({ referenceObjects, onRef
                             module={module}
                             modelStats={modelStats}
                             onModelStatsChange={onModelStatsChange}
-                            aspectRatioClass="aspect-[3/4]"
+                            aspectRatioClass="aspect-square"
                         />
                     ) : (
                         // EMPTY STATE: Show Library Grid if models exist, else show Upload Slot
@@ -513,7 +513,7 @@ const ReferencePanel: React.FC<ReferencePanelProps> = ({ referenceObjects, onRef
                                     onRemove={() => { }}
                                     isLoading={isLoading}
                                     module={module}
-                                    aspectRatioClass="aspect-[3/4]"
+                                    aspectRatioClass="aspect-square"
                                     placeholderContent={
                                         <div className="flex flex-col items-center justify-center text-center">
                                             <div className="p-2 rounded-full bg-gray-50 border border-gray-200 group-hover:bg-[var(--brand-accent-color)] group-hover:text-white transition-colors">
@@ -547,7 +547,7 @@ const ReferencePanel: React.FC<ReferencePanelProps> = ({ referenceObjects, onRef
                                 onRemove={() => { }}
                                 isLoading={isLoading}
                                 module={module}
-                                aspectRatioClass="aspect-[3/4]"
+                                aspectRatioClass="aspect-square"
                                 placeholderContent={
                                     <div className="flex flex-col items-center justify-center gap-2 text-center w-full h-full">
                                         <div className="p-3 rounded-full bg-white border border-gray-200 group-hover:scale-110 transition-transform shadow-sm">
@@ -586,7 +586,7 @@ const ReferencePanel: React.FC<ReferencePanelProps> = ({ referenceObjects, onRef
                                 module={module}
                                 modelStats={undefined}
                                 onModelStatsChange={undefined}
-                                aspectRatioClass="aspect-[4/5]"
+                                aspectRatioClass="aspect-square"
                             />
                         );
                     })}
@@ -600,7 +600,7 @@ const ReferencePanel: React.FC<ReferencePanelProps> = ({ referenceObjects, onRef
                             onRemove={() => { }}
                             isLoading={isLoading}
                             module={module}
-                            aspectRatioClass="aspect-[4/5]"
+                            aspectRatioClass="aspect-square"
                         />
                     )}
                 </div>

@@ -136,7 +136,7 @@ const ProductionPanel: React.FC<ProductionPanelProps> = ({
     return (
         <div className="flex flex-col h-full bg-gray-50/50">
             {/* Toolbar */}
-            <div className="h-20 border-b border-gray-200 bg-white px-8 flex items-center justify-between shadow-sm z-10">
+            <div className="min-h-20 py-4 border-b border-gray-200 bg-white px-8 flex items-center justify-between shadow-sm z-10">
                 <div className="flex items-center gap-6">
                     <div>
                         <h2 className="text-xl font-serif font-medium text-gray-900 leading-none">

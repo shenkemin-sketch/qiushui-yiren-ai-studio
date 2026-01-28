@@ -144,14 +144,14 @@ const StartScreen: React.FC<StartScreenProps> = ({ onModeSelect }) => {
 
                 <div className="flex flex-col items-center text-center gap-2 mb-4">
                     <h2 className="text-3xl md:text-5xl font-serif font-thin text-gray-900 tracking-tight leading-none">
-                        Autumn Water
+                        Chiu Shui
                     </h2>
-                    <div className="flex items-center gap-3">
-                        <div className="h-px w-8 bg-gray-300"></div>
-                        <h3 className="text-[10px] uppercase tracking-[0.3em] text-gray-400 font-light">
-                            AI Creative Studio v2.0
+                    <div className="flex items-center gap-4 mt-1">
+                        <div className="h-px w-12 bg-gray-300"></div>
+                        <h3 className="text-xs text-gray-500 font-light tracking-widest">
+                            AI 摄影中台
                         </h3>
-                        <div className="h-px w-8 bg-gray-300"></div>
+                        <div className="h-px w-12 bg-gray-300"></div>
                     </div>
                 </div>
 
@@ -159,10 +159,10 @@ const StartScreen: React.FC<StartScreenProps> = ({ onModeSelect }) => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 px-2 max-w-[1200px] mx-auto w-full">
                     <Card
                         module="lookbook"
-                        title="棚拍与款片"
+                        title="棚拍 / 款片"
                         engTitle="Model Lookbook"
                         subtitle="Collection 01"
-                        desc="一键生成12张模特图。从电商主图到社媒内容，一套图覆盖所有渠道需求。"
+                        desc="生成模特穿着的电商主图与社媒穿搭图。一套图覆盖多平台，让服装在不同场景下展现最佳状态。"
                         index="01"
                     />
                     <Card
@@ -170,7 +170,7 @@ const StartScreen: React.FC<StartScreenProps> = ({ onModeSelect }) => {
                         title="形象大片"
                         engTitle="Brand Campaign"
                         subtitle="Collection 02"
-                        desc="5张品牌形象大片。电影感光影，直接用于季度主题、海报或Lookbook封面。"
+                        desc="生成电影感品牌视觉大片。用于季度主题、海报封面或品牌故事，塑造高级感与调性。"
                         index="02"
                     />
                     <Card
@@ -178,7 +178,7 @@ const StartScreen: React.FC<StartScreenProps> = ({ onModeSelect }) => {
                         title="静物特写"
                         engTitle="Still Life"
                         subtitle="Collection 03"
-                        desc="3-15张产品特写。真实还原面料质感与工艺细节，白底图一键切换。"
+                        desc="生成产品平铺与工艺细节图。将面料质感、设计工艺完美呈现，赢得用户信任。"
                         index="03"
                     />
                 </div>

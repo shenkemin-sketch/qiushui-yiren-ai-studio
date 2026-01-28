@@ -33,19 +33,19 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick, module }) => {
             onClick={isActionable ? onLogoClick : undefined}
             className={`group flex flex-col items-start ${isActionable ? 'cursor-pointer' : 'cursor-default'}`}
           >
-            <h1 className="text-3xl font-serif font-medium tracking-tight text-gray-900 leading-none">
+            <h1 className="text-2xl font-serif font-medium tracking-tight text-gray-900 leading-none">
               秋水伊人
             </h1>
-            <span className="text-[11px] tracking-[0.3em] uppercase text-gray-500 mt-1 font-sans group-hover:text-black transition-colors">
-              Autumn Water Lady
+            <span className="text-[10px] tracking-[0.25em] uppercase text-gray-400 mt-0.5 font-sans group-hover:text-gray-600 transition-colors">
+              Chiu Shui
             </span>
           </button>
         </div>
 
         {/* Center: Module Indicator (Absolute Center) */}
         {module && (
-          <div className="absolute left-1/2 -translate-x-1/2 bottom-1 hidden md:block">
-            <span className="text-[11px] tracking-[0.2em] font-medium uppercase text-gray-400 border-b border-transparent">
+          <div className="absolute left-1/2 -translate-x-1/2 bottom-1 hidden md:block z-20">
+            <span className="text-[11px] tracking-[0.2em] font-medium uppercase text-gray-400 whitespace-nowrap">
               {getModuleLabel(module)}
             </span>
           </div>
@@ -53,8 +53,8 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick, module }) => {
 
         {/* Right: Studio Label */}
         <div className="flex items-end gap-4 z-10">
-          <span className="text-[11px] font-mono text-gray-400 uppercase tracking-widest">
-            AI Creative Studio v2.0
+          <span className="text-[11px] font-serif italic text-gray-400 tracking-wide">
+            Every Shot, A Masterpiece
           </span>
         </div>
       </div>

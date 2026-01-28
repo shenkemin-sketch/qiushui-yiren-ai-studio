@@ -23,22 +23,21 @@ const aspectRatios = [
 
 const AspectRatioPanel: React.FC<AspectRatioPanelProps> = ({ selectedRatio, onRatioChange, disabled }) => {
     return (
-        <div className="w-full flex flex-col gap-4 pt-8 border-t border-gray-200/80">
-            <div className="flex flex-col items-center text-center">
-                <h3 className="text-sm font-bold text-gray-700 tracking-wider">输出比例</h3>
-                <p className="text-xs text-gray-500 mt-1">设定作品画幅</p>
+        <div className="w-full flex flex-col gap-2 pt-6 border-t border-gray-200/80">
+            <div className="flex items-center gap-2">
+                <h3 className="text-xs font-bold text-gray-700 tracking-wider">输出比例</h3>
+                <span className="text-[11px] text-gray-400">画幅</span>
             </div>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-6 gap-1">
                 {aspectRatios.map(({ name, value }) => (
                     <button
                         key={value}
                         onClick={() => onRatioChange(value)}
                         disabled={disabled}
-                        className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed ${
-                            selectedRatio === value
+                        className={`px-2 py-1.5 rounded-md text-xs font-medium transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed ${selectedRatio === value
                                 ? 'bg-[var(--brand-accent-color)] !text-white shadow-sm'
                                 : 'bg-gray-100/80 hover:bg-gray-200/80 text-gray-700'
-                        }`}
+                            }`}
                     >
                         {name}
                     </button>
