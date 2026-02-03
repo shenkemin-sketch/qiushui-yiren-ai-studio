@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  /* --- Brand Palette: Korean Chaebol (韩系千金风) --- */
+  /* Based on Desert Rose theme from theme-factory Skill */
+
+  /* Backgrounds */
+  --bg-primary: #FDFBF9;
+  /* Milk White - warmer than pure white */
+  --bg-secondary: #F5F0EB;
+  /* Oat Cream - subtle warmth */
+  --bg-surface: #FFFFFF;
+  --bg-color: var(--bg-primary);
+  /* 兼容别名 */
+  --panel-bg-color: var(--bg-surface);
+  /* 兼容别名 */
+
+  /* Text */
+  --text-primary: #2D2926;
+  /* Charcoal Ink - refined black */
+  --text-secondary: #7A746E;
+  /* Stone - warmer gray */
+  --text-tertiary: #A9A29B;
+  /* Muted Taupe */
+
+  /* Accents - Korean Chaebol Rose */
+  --brand-accent: #C7A9A3;
+  /* Blush Rose - soft, elegant */
+  --brand-accent-hover: #A88B84;
+  /* Dusty Mauve - deeper rose */
+  --brand-accent-color: var(--brand-accent);
+  /* 兼容别名 */
+  --brand-accent-hover-color: var(--brand-accent-hover);
+  /* 兼容别名 */
+  --brand-highlight: #E8D5C4;
+  /* Champagne - for selections */
+
+  /* UI Elements */
+  --border-subtle: #E8E4DF;
+  --border-focus: var(--brand-accent);
+  --border-color: var(--border-subtle);
+  /* 兼容别名 */
+
+  /* --- Typography Scale (符合 WCAG 最小可读性标准) --- */
+  --font-size-2xs: 11px;
+  /* 版权、辅助信息 (最小值) */
+  --font-size-xs: 12px;
+  /* 次要标签、副标题 */
+  --font-size-sm: 13px;
+  /* 小号正文 */
+  --font-size-base: 14px;
+  /* 正文基准 */
+  --font-size-md: 16px;
+  /* 中号 */
+  --font-size-lg: 18px;
+  /* 大号 */
+
+  --font-sans: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', 'Noto Serif SC', serif;
+
+  /* --- Shadows & Depth --- */
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.03);
+  --shadow-raised: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --shadow-sharp: 4px 4px 0px rgba(44, 42, 41, 0.1);
+}
+
+/* --- 全屏布局 --- */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  /* ui-ux-pro-max 规范: 1.5-1.75 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+/* --- Custom Utility Classes --- */
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.text-brand {
+  color: var(--brand-accent);
+}
+
+.bg-brand {
+  background-color: var(--brand-accent);
+}
+
+/* --- Component Styles --- */
+
+.btn {
+  @apply px-6 py-2 rounded-lg font-medium transition-all duration-300 transform active:scale-[0.98] flex items-center justify-center gap-2;
+}
+
+.btn-primary {
+  @apply bg-[#2C2A29] text-white hover:bg-[#4A4746] shadow-md hover:shadow-lg;
+}
+
+.btn-accent {
+  background-color: var(--brand-accent);
+  color: #2D2926;
+  /* Dark text for better contrast on light rose */
+  box-shadow: 0 4px 12px rgba(199, 169, 163, 0.3);
+}
+
+.btn-accent:hover {
+  background-color: var(--brand-accent-hover);
+  box-shadow: 0 6px 16px rgba(168, 139, 132, 0.4);
+}
+
+.btn-secondary {
+  @apply bg-white border border-[#E5E3DF] text-[#6B6661] hover:bg-[#FAFAF8] hover:border-[#D1CEC9] hover:text-[#2C2A29];
+}
+
+.card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+}
+
+.input-modern {
+  @apply w-full px-4 py-3 bg-[#FDFBF9] border border-[#E8E4DF] rounded-lg text-[#2D2926] placeholder-[#A9A29B] focus:outline-none focus:border-[#C7A9A3] focus:ring-1 focus:ring-[#C7A9A3] transition-all duration-200;
+}
+
+/* --- Animations --- */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shake {
+  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes success-digit-anim {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out-up {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D1CEC9;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A39E99;
+}
+
+/* --- 可访问性增强 --- */
+
+/* 焦点可见轮廓 */
+.btn:focus-visible,
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 2px;
+}
+
+/* 文本选择样式 */
+::selection {
+  background: var(--brand-accent);
+  color: white;
+}
+
+/* 品牌十字光标 */
+.cursor-brand-crosshair {
+  cursor: crosshair;
+}

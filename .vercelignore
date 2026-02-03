@@ -1,0 +1,20 @@
+# Vercel Ignore File - Exclude large assets from deployment
+node_modules
+build
+dist
+.git
+.trae
+.log
+.figma
+
+# AI Test Suite (all generated images, inputs, ground truth) - CRITICAL
+_ai_test_suite/
+
+# Large reference files
+3 个拍摄模块的要求和参考/
+
+# Development scripts (not needed for frontend)
+scripts/
+
+# Other large files
+*.pptx
