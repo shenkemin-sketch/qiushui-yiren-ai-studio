@@ -137,21 +137,21 @@ const ProductionPanel: React.FC<ProductionPanelProps> = ({
         <div className="flex flex-col h-full bg-gray-50/50">
             {/* Toolbar */}
             <div className="min-h-20 py-4 border-b border-gray-200 bg-white px-4 md:px-8 flex flex-col md:flex-row md:items-center justify-between shadow-sm z-10 gap-4 md:gap-0">
-                <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
-                    <div>
-                        <h2 className="text-xl font-serif font-medium text-gray-900 leading-none">
-                            {module === 'lookbook' && '棚拍生产线'}
-                            {module === 'campaign' && '大片生产线'}
-                            {module === 'still_life' && '静物生产线'}
-                        </h2>
+                <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 flex-1">
+                    <h2 className="text-xl font-serif font-medium text-gray-900 leading-none shrink-0">
+                        {module === 'lookbook' && '棚拍生产线'}
+                        {module === 'campaign' && '大片生产线'}
+                        {module === 'still_life' && '静物生产线'}
+                    </h2>
+
+                    <div className="flex flex-wrap items-center gap-4">
                         {/* Show Category Selector for BOTH Lookbook and Still Life */}
                         {(module === 'lookbook' || module === 'still_life') && (
-                            <div className="mt-2 flex flex-wrap items-center gap-2">
-                                <span className="text-xs text-gray-500 font-mono">品类：</span>
+                            <div className="flex items-center gap-2">
                                 <select
                                     value={productCategory}
                                     onChange={(e) => setProductCategory(e.target.value as ProductCategory)}
-                                    className="bg-gray-100 border-none text-xs font-bold uppercase rounded px-2 py-1 text-gray-900 cursor-pointer hover:bg-gray-200 outline-none w-full md:w-auto"
+                                    className="bg-gray-100 border-none text-xs font-bold uppercase rounded px-2 py-1.5 text-gray-900 cursor-pointer hover:bg-gray-200 outline-none transition-colors"
                                 >
                                     {CATEGORIES.map(c => <option key={c.value} value={c.value}>{c.label}</option>)}
                                 </select>
@@ -160,27 +160,27 @@ const ProductionPanel: React.FC<ProductionPanelProps> = ({
 
                         {/* New S-Grade Controls */}
                         {module === 'lookbook' && (
-                            <div className="flex items-center gap-4 mt-2">
+                            <>
+                                <div className="h-4 w-px bg-gray-200 hidden md:block"></div>
+
                                 {/* Environment Selector */}
                                 <div className="flex bg-gray-100 p-0.5 rounded-lg border border-gray-200">
                                     <button
                                         onClick={() => setShotEnvironment('indoor')}
-                                        className={`px-3 py-1 rounded-md text-xs font-bold transition-all ${shotEnvironment === 'indoor' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}
+                                        className={`px-3 py-1 rounded-md text-[10px] font-bold transition-all ${shotEnvironment === 'indoor' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}
                                     >
                                         内景棚拍
                                     </button>
                                     <button
                                         onClick={() => setShotEnvironment('outdoor')}
-                                        className={`px-3 py-1 rounded-md text-xs font-bold transition-all ${shotEnvironment === 'outdoor' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}
+                                        className={`px-3 py-1 rounded-md text-[10px] font-bold transition-all ${shotEnvironment === 'outdoor' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}
                                     >
                                         外景街拍
                                     </button>
                                 </div>
 
-                                <div className="h-4 w-px bg-gray-200"></div>
-
                                 {/* VIP Pack Toggle */}
-                                <label className="flex items-center gap-2 cursor-pointer group">
+                                <label className="flex items-center gap-2 cursor-pointer group ml-2">
                                     <input
                                         type="checkbox"
                                         className="checkbox-accent w-4 h-4 rounded border-gray-300 text-[var(--brand-accent-color)] focus:ring-[var(--brand-accent-color)]"
@@ -192,9 +192,9 @@ const ProductionPanel: React.FC<ProductionPanelProps> = ({
                                             setShotPacks(next);
                                         }}
                                     />
-                                    <span className="text-xs font-medium text-gray-500 group-hover:text-gray-900 transition-colors select-none">唯品会增补包 (+3)</span>
+                                    <span className="text-[10px] font-bold text-gray-500 group-hover:text-gray-900 transition-colors select-none uppercase tracking-wider">唯品会增补 (+3)</span>
                                 </label>
-                            </div>
+                            </>
                         )}
                     </div>
                 </div>
