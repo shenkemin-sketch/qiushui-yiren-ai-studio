@@ -314,6 +314,52 @@ export const S_GRADE_SHORTS_SHOTS: ShotDefinition[] = [
     { id: 's_sht_sa_1', name: 'SA创意 (Creative)', category: 'creative', pack: 'standard', aspectRatio: '3:4', description: '创意角度。', promptTemplate: '[SHOT: LOW ANGLE] Enhancing leg length.' }
 ];
 
+// ==========================================
+// 唯品会增补包 (VIP Supplement) - 3 Shots
+// 关键词：网感、生活化、点击率。可叠加于所有品类。
+// ==========================================
+export const VIP_SUPPLEMENT_SHOTS: ShotDefinition[] = [
+    {
+        id: 'vip_vibe_snap',
+        name: '场景抓拍 (Vibe Snap)',
+        category: 'supplement',
+        pack: 'vip',
+        aspectRatio: '3:4',
+        description: '营造生活瞬间的真实感。',
+        promptTemplate: `[SHOT: LIFESTYLE SNAP]
+- **FRAMING**: Full or 3/4 body.
+- **POSE**: Caught mid-movement, laughing, hair flying. Spontaneous and unscripted.
+- **MOOD**: Strong "net sense" (网感). Relatable, click-inducing.
+- **BACKGROUND**: {environment} with lifestyle props (cafe, street art).`
+    },
+    {
+        id: 'vip_prop_inter',
+        name: '道具互动 (Prop)',
+        category: 'supplement',
+        pack: 'vip',
+        aspectRatio: '3:4',
+        description: '通过道具营造生活方式。',
+        promptTemplate: `[SHOT: PROP INTERACTION]
+- **FRAMING**: Half body or 3/4.
+- **PROPS**: Holding flowers, coffee cup, book, or bag.
+- **MOOD**: Lifestyle integration, aspirational daily scene.
+- **BACKGROUND**: {environment} with warm tones.`
+    },
+    {
+        id: 'vip_dynamic_pose',
+        name: '动态扭姿 (Dynamic Pose)',
+        category: 'supplement',
+        pack: 'vip',
+        aspectRatio: '3:4',
+        description: '网红构图，强视觉冲击。',
+        promptTemplate: `[SHOT: EXAGGERATED POSE]
+- **FRAMING**: Full body.
+- **POSE**: S-curve, twisted waist, "broken" pose. High fashion edge.
+- **STYLE**: Strong shadow play. Dramatic but tasteful.
+- **MOOD**: High click-through rate style. Eye-catching on feed.`
+    }
+];
+
 export const getLookbookShots = (
     category: ProductCategory = 'dress',
     packs: ShotPack[] = ['standard'],
@@ -338,6 +384,11 @@ export const getLookbookShots = (
                 shots = [...shots, ...S_GRADE_TOPS_SHOTS];
                 break;
         }
+    }
+
+    // Add VIP Supplement shots if 'vip' pack is selected
+    if (packs.includes('vip')) {
+        shots = [...shots, ...VIP_SUPPLEMENT_SHOTS];
     }
 
     // Environment Injections with Visual Tuning

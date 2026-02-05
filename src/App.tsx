@@ -99,7 +99,8 @@ function App() {
         );
     }
 
-    const isProduction = currentModule === 'campaign' || currentModule === 'still_life';
+    // All three modules (Lookbook, Campaign, Still Life) use ProductionPanel for batch shot generation
+    const isProduction = currentModule === 'lookbook' || currentModule === 'campaign' || currentModule === 'still_life';
 
     return (
         <div className="min-h-screen bg-neutral-50 flex flex-col font-sans text-neutral-900">
